@@ -13,5 +13,13 @@ dependencyResolutionManagement {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 rootProject.name = "multimodule"
 include(":app")
+include(":common")
+include(":common:data")
+include(":common:domain")
+include(":common:presentation")
+include(":feature")
+include(":navigation")
