@@ -36,9 +36,19 @@ android {
 
 dependencies {
 
+    implementation(projects.feature.login.presentation)
+
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
+
+    //  Navigation
+    implementation(libs.navigation.ui)
+    implementation(libs.navigation.fragment)
+
+    //  Lifecycle
+    implementation(libs.lifecycle.livedata)
+    implementation(libs.lifecycle.viewmodel)
 
     //  Hilt
     implementation(libs.hilt.android)

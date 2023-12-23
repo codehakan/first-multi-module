@@ -32,6 +32,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    buildFeatures {
+        viewBinding = true
+    }
     kotlinOptions {
         jvmTarget = "17"
     }
@@ -42,6 +45,8 @@ dependencies {
     implementation(projects.common.data)
     implementation(projects.common.domain)
     implementation(projects.common.presentation)
+
+    implementation(projects.navigation)
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
