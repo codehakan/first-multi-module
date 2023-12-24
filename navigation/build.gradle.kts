@@ -1,8 +1,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.hilt)
+    alias(libs.plugins.safe.args)
 }
 
 android {
@@ -34,26 +33,14 @@ android {
     }
     sourceSets {
         getByName("main").res.srcDirs(
-            "$rootDir/navigation/src/main/sharedRes", "build/generated/source/navigation-args-kotlin"
+            "$rootDir/navigation/src/main/sharedRes",
+            "build/generated/source/navigation-args-kotlin"
         )
     }
 }
 
 dependencies {
-
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
-
     //  Navigation
     api(libs.navigation.ui)
     api(libs.navigation.fragment)
-
-    //  Lifecycle
-    implementation(libs.lifecycle.livedata)
-    implementation(libs.lifecycle.viewmodel)
-
-    //  Hilt
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
 }
