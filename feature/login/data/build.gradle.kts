@@ -1,10 +1,12 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
-    namespace = "com.hakanbey.common.domain"
+    namespace = "com.hakanbey.login.data"
     compileSdk = 34
 
     defaultConfig {
@@ -34,7 +36,13 @@ android {
 
 dependencies {
 
+    implementation(projects.common.data)
+
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 }
