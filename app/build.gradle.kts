@@ -38,6 +38,9 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    sourceSets {
+        getByName("debug").res.srcDirs("$rootDir/navigation/src/main/sharedRes")
+    }
 }
 
 dependencies {
@@ -45,6 +48,14 @@ dependencies {
     implementation(projects.common.data)
     implementation(projects.common.domain)
     implementation(projects.common.presentation)
+
+    implementation(projects.feature.login.data)
+    implementation(projects.feature.login.domain)
+    implementation(projects.feature.login.presentation)
+
+    implementation(projects.feature.home.data)
+    implementation(projects.feature.home.domain)
+    implementation(projects.feature.home.presentation)
 
     implementation(projects.navigation)
 

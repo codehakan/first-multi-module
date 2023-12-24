@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.hakanbey.login.presentation"
+    namespace = "com.hakanbey.feature.home.presentation"
     compileSdk = 34
 
     defaultConfig {

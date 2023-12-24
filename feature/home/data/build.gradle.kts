@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.hakanbey.login.presentation"
+    namespace = "com.hakanbey.feature.home.data"
     compileSdk = 34
 
     defaultConfig {
@@ -29,9 +29,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    buildFeatures {
-        viewBinding = true
-    }
     kotlinOptions {
         jvmTarget = "17"
     }
@@ -39,10 +36,7 @@ android {
 
 dependencies {
 
-    implementation(projects.navigation)
-
     implementation(projects.common.data)
-    implementation(projects.common.presentation)
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)

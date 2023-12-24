@@ -32,19 +32,22 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    sourceSets {
+        getByName("main").res.srcDirs(
+            "$rootDir/navigation/src/main/sharedRes", "build/generated/source/navigation-args-kotlin"
+        )
+    }
 }
 
 dependencies {
-
-    implementation(projects.feature.login.presentation)
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
 
     //  Navigation
-    implementation(libs.navigation.ui)
-    implementation(libs.navigation.fragment)
+    api(libs.navigation.ui)
+    api(libs.navigation.fragment)
 
     //  Lifecycle
     implementation(libs.lifecycle.livedata)
