@@ -43,10 +43,16 @@ dependencies {
 
     implementation(projects.common.data)
     implementation(projects.common.presentation)
+    implementation(projects.feature.home.domain)
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
+
+    implementation(libs.lifecycle.livedata)
+    implementation(libs.lifecycle.extensions)
+    implementation(libs.lifecycle.common)
+    implementation(libs.lifecycle.runtime)
 
     //  Hilt
     implementation(libs.hilt.android)

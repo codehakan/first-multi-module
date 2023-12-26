@@ -35,6 +35,13 @@ android {
 }
 
 dependencies {
+    // Retrofit
+    api(libs.retrofit)
+    api(libs.retrofit.gson)
+    api(libs.chucker)
+    api(libs.okhttp.url)
+    api(libs.okhttp.interceptor)
+
     //  Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)

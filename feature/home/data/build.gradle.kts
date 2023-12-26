@@ -37,10 +37,9 @@ android {
 dependencies {
 
     implementation(projects.common.data)
+    implementation(projects.feature.home.domain)
 
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
+    implementation(libs.coroutines.core)
 
     //  Hilt
     implementation(libs.hilt.android)

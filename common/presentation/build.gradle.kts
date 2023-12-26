@@ -43,6 +43,12 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
 
+    implementation(libs.lifecycle.viewmodel)
+    implementation(libs.lifecycle.livedata)
+    implementation(libs.lifecycle.extensions)
+    implementation(libs.lifecycle.runtime)
+    api(libs.coil)
+
     //  Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
