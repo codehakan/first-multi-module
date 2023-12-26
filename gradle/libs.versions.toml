@@ -9,10 +9,14 @@ hilt = "2.49"
 ksp = "1.9.21-1.0.15"
 navigation = "2.7.6"
 lifecycle = "2.6.1"
-junit = "4.13.2"
-androidx-test-ext-junit = "1.1.5"
-espresso-core = "3.5.1"
+lifecycle-extensions = "2.2.0"
 safe-args = "2.7.6"
+retrofit = "2.9.0"
+chucker = "3.5.2"
+okhttp-url = "4.4.1"
+okhttp-interceptor = "4.12.0"
+coroutines = "1.7.0"
+coil = "2.5.0"
 
 [libraries]
 # Kotlin
@@ -33,10 +37,26 @@ hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.r
 navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
 
+# Retrofit
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+chucker = { group = "com.github.chuckerteam.chucker", name = "library", version.ref = "chucker" }
+okhttp-url = { group = "com.squareup.okhttp3", name = "okhttp-urlconnection", version.ref = "okhttp-url" }
+okhttp-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp-interceptor" }
+
 # Lifecycle
+lifecycle-extensions = { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "lifecycle-extensions" }
+lifecycle-common = { group = "androidx.lifecycle", name = "lifecycle-common", version.ref = "lifecycle-extensions" }
+lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
 lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle" }
 safe-args = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "safe-args" }
+
+# Coroutines
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+
+# Coil
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

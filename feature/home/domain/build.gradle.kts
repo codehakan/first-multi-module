@@ -38,10 +38,6 @@ dependencies {
 
     implementation(projects.common.data)
 
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
-
     //  Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
