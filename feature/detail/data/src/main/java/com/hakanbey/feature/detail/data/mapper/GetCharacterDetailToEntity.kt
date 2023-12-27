@@ -7,6 +7,7 @@ fun GetCharacterDetailResponseModel.toEntity() =
     GetCharacterDetailResponseModelEntity(
         id = this.id,
         name = this.name,
+        status = this.status,
         species = this.species,
         type = this.type,
         gender = this.gender,

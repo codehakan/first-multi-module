@@ -3,6 +3,7 @@ package com.hakanbey.feature.detail.data.dto
 data class GetCharacterDetailResponseModel(
     val id: String,
     val name: String,
+    val status: String,
     val species: String,
     val type: String,
     val gender: String,
