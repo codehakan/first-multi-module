@@ -21,7 +21,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         binding.recyclerView.adapter = adapter
 
         adapter.setItemClickListener {
-            val direction = HomeFragmentDirections.actionHomeFragmentToDetailFragment()
+            val direction = HomeFragmentDirections.actionHomeFragmentToDetailFragment(it.id.toString())
             findNavController().navigate(direction)
         }
     }

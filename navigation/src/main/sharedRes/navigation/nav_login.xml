@@ -34,5 +34,9 @@
         android:id="@+id/detailFragment"
         android:name="com.hakanbey.feature.detail.presentation.DetailFragment"
         android:label="DetailFragment"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
 </navigation>
