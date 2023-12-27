@@ -57,6 +57,10 @@ dependencies {
     implementation(projects.feature.home.domain)
     implementation(projects.feature.home.presentation)
 
+    implementation(projects.feature.detail.data)
+    implementation(projects.feature.detail.domain)
+    implementation(projects.feature.detail.presentation)
+
     implementation(projects.navigation)
 
     implementation(libs.core.ktx)

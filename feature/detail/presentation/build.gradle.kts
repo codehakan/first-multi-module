@@ -43,7 +43,7 @@ dependencies {
 
     implementation(projects.common.data)
     implementation(projects.common.presentation)
-    implementation(projects.feature.home.domain)
+    implementation(projects.feature.detail.domain)
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
