@@ -1,5 +1,6 @@
 package com.hakanbey.common.data.base
 
+import com.hakanbey.common.data.dto.NetworkError
 import com.hakanbey.common.data.dto.NetworkWrapper
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -16,14 +17,18 @@ abstract class BaseRepository {
     ): Flow<NetworkWrapper<T>> = withContext(dispatcher) {
         flow {
             val response = call.invoke()
+            println("Response: $response")
             if (response.isSuccessful) {
                 val model = response.body()!!
                 emit(NetworkWrapper.Success(model))
             } else {
-                emit(NetworkWrapper.Error(response.message()))
+                val networkError = NetworkError()
+                networkError.apiMessage = response.message()
+                networkError.errorcode = response.code()
+                emit(NetworkWrapper.Error(networkError))
             }
         }.catch { exception ->
-            emit(NetworkWrapper.Error(exception.localizedMessage?.toString().toString()))
+            emit(NetworkWrapper.Error(NetworkError(exception)))
         }
     }
 }

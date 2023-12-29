@@ -1,22 +1,19 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
 
 android {
-    namespace = "com.hakanbey.multimodule"
+    namespace = "com.hakanbey.feature.detail.presentation"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.hakanbey.multimodule"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -38,35 +35,24 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-    sourceSets {
-        getByName("debug").res.srcDirs("$rootDir/navigation/src/main/sharedRes")
-    }
 }
 
 dependencies {
 
-    implementation(projects.common.data)
-    implementation(projects.common.domain)
-    implementation(projects.common.presentation)
-
-    implementation(projects.feature.login.data)
-    implementation(projects.feature.login.domain)
-    implementation(projects.feature.login.presentation)
-
-    implementation(projects.feature.home.data)
-    implementation(projects.feature.home.domain)
-    implementation(projects.feature.home.presentation)
-
-    implementation(projects.feature.detail.data)
-    implementation(projects.feature.detail.domain)
-    implementation(projects.feature.detail.presentation)
-
     implementation(projects.navigation)
+
+    implementation(projects.common.data)
+    implementation(projects.common.presentation)
+    implementation(projects.feature.detail.domain)
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(libs.constraintlayout)
+
+    implementation(libs.lifecycle.livedata)
+    implementation(libs.lifecycle.extensions)
+    implementation(libs.lifecycle.common)
+    implementation(libs.lifecycle.runtime)
 
     //  Hilt
     implementation(libs.hilt.android)
