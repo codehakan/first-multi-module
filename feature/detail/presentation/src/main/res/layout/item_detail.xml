@@ -20,9 +20,12 @@
             <TextView
                 android:id="@+id/key"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#ECA8A8"
+                android:gravity="center|start"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="8dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 tools:text="Key" />
@@ -30,9 +33,12 @@
             <TextView
                 android:id="@+id/value"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#899CDD"
+                android:gravity="center|start"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="8dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 tools:text="Value" />

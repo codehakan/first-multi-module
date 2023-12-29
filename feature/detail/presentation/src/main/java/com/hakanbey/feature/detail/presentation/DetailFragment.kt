@@ -7,6 +7,7 @@ import androidx.navigation.fragment.navArgs
 import coil.load
 import com.hakanbey.common.presentation.base.BaseFragment
 import com.hakanbey.common.presentation.util.fragmentViewBinding
+import com.hakanbey.feature.detail.domain.entity.GetCharacterDetailResponseModelEntity
 import com.hakanbey.feature.detail.presentation.component.PairView
 import com.hakanbey.feature.detail.presentation.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,28 +31,9 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
         viewModel.characterDetail.observe(viewLifecycleOwner) {
             binding.imageProfile.load(it.image)
             binding.progressCircular.isGone = true
-            binding.gridLayoutPersonalInfo.apply {
-                addView(
-                    prepareTextView(
-                        Pair("Name", it.name)
-                    )
-                )
-                addView(
-                    prepareTextView(
-                        Pair("Status", it.status)
-                    )
-                )
-                addView(
-                    prepareTextView(
-                        Pair("Species", it.species)
-                    )
-                )
-                addView(
-                    prepareTextView(
-                        Pair("Gender", it.gender)
-                    )
-                )
-            }
+            binding.createdDate.text = it.created
+            informationTable(it)
+            locationTable(it)
         }
     }
 
@@ -65,6 +47,46 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
         pairView.setUp(pair.first, pair.second)
 
         return pairView
+    }
+
+    private fun informationTable(model: GetCharacterDetailResponseModelEntity) {
+        binding.gridLayoutPersonalInfo.apply {
+            addView(
+                prepareTextView(
+                    Pair("Name", model.name)
+                )
+            )
+            addView(
+                prepareTextView(
+                    Pair("Status", model.status)
+                )
+            )
+            addView(
+                prepareTextView(
+                    Pair("Species", model.species)
+                )
+            )
+            addView(
+                prepareTextView(
+                    Pair("Gender", model.gender)
+                )
+            )
+        }
+    }
+
+    private fun locationTable(model: GetCharacterDetailResponseModelEntity) {
+        binding.gridLayoutLocation.apply {
+            addView(
+                prepareTextView(
+                    Pair("Name", model.location.name)
+                )
+            )
+            addView(
+                prepareTextView(
+                    Pair("URL", model.location.url)
+                )
+            )
+        }
     }
 
 }
