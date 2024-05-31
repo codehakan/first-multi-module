@@ -1,7 +1,8 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -28,21 +29,46 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        viewBinding = true
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
+    }
+    sourceSets {
+        getByName("debug").res.srcDirs("$rootDir/navigation/src/main/sharedRes")
     }
 }
 
 dependencies {
 
+    implementation(projects.common.data)
+    implementation(projects.common.domain)
+    implementation(projects.common.presentation)
+
+    implementation(projects.feature.login.data)
+    implementation(projects.feature.login.domain)
+    implementation(projects.feature.login.presentation)
+
+    implementation(projects.feature.home.data)
+    implementation(projects.feature.home.domain)
+    implementation(projects.feature.home.presentation)
+
+    implementation(projects.feature.detail.data)
+    implementation(projects.feature.detail.domain)
+    implementation(projects.feature.detail.presentation)
+
+    implementation(projects.navigation)
+
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+
+    //  Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 }
